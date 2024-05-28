@@ -49,7 +49,7 @@ import { getAccountBorrowable } from "echelon-sdk";
 const borrowable = await getAccountBorrowable(aptos, account, market);
 ```
 
-The user can borrow an amount of coins less than the maximum borrowable. To send the transaction, you can use "@thalalabs/surf"or Aptos wallet adapter. Here is an example using Surf:
+The user can borrow an amount of coins less than the maximum borrowable. To send the transaction, you can use "@thalalabs/surf" or Aptos wallet adapter. Here is an example using Surf:
 
 ```tsx
 import { createBorrowPayload } from "echelon-sdk";
