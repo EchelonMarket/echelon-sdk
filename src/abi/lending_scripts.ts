@@ -1,0 +1,221 @@
+export const LENDING_SCRIPTS_ABI = {
+  address: "0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba",
+  name: "scripts",
+  friends: [],
+  exposed_functions: [
+    {
+      name: "borrow",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [
+        {
+          constraints: [],
+        },
+      ],
+      params: [
+        "&signer",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "borrow_fa",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [],
+      params: [
+        "&signer",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "claim_reward",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [
+        {
+          constraints: [],
+        },
+      ],
+      params: ["&signer", "0x1::string::String"],
+      return: [],
+    },
+    {
+      name: "claim_reward_fa",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [],
+      params: [
+        "&signer",
+        "0x1::object::Object<0x1::fungible_asset::Metadata>",
+        "0x1::string::String",
+      ],
+      return: [],
+    },
+    {
+      name: "create_market_with_jump_model",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [
+        {
+          constraints: [],
+        },
+      ],
+      params: ["&signer", "u64", "u64", "u64", "u64", "u64", "u64"],
+      return: [],
+    },
+    {
+      name: "create_market_with_jump_model_fa",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [],
+      params: [
+        "&signer",
+        "0x1::object::Object<0x1::fungible_asset::Metadata>",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "liquidate",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [
+        {
+          constraints: [],
+        },
+      ],
+      params: [
+        "&signer",
+        "address",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "u64",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "liquidate_fa",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [],
+      params: [
+        "&signer",
+        "address",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "u64",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "repay",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [
+        {
+          constraints: [],
+        },
+      ],
+      params: [
+        "&signer",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "repay_fa",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [],
+      params: [
+        "&signer",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "supply",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [
+        {
+          constraints: [],
+        },
+      ],
+      params: [
+        "&signer",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "supply_fa",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [],
+      params: [
+        "&signer",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "withdraw",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [
+        {
+          constraints: [],
+        },
+      ],
+      params: [
+        "&signer",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "withdraw_fa",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [],
+      params: [
+        "&signer",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        "u64",
+      ],
+      return: [],
+    },
+  ],
+  structs: [],
+} as const;
