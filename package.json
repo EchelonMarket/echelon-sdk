@@ -1,7 +1,7 @@
 {
-  "name": "echelon-sdk",
+  "name": "@EchelonMarket/echelon-sdk",
   "version": "1.0.0",
-  "description": "The SDK for the Echelon protocol",
+  "description": "The SDK for the Echelon Market",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "tsup ./src",
@@ -22,9 +22,6 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "publishConfig": {
-    "access": "public"
-  },
   "keywords": [
     "move",
     "blockchain",
@@ -34,6 +31,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/EchelonMarket/echelon-sdk"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

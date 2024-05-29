@@ -4,11 +4,29 @@
 
 ### Install
 
+Edit or add a `.npmrc` file to including following lines:
 ```
-npm install echelon-sdk
+//npm.pkg.github.com/:_authToken=_authToken
+@echelonmarket:registry=https://npm.pkg.github.com
+```
+
+Run command to login:
+```
+$ npm login --registry=https://npm.pkg.github.com
+> Username: USERNAME
+> Password: TOKEN
+```
+
+USERNAME is you github account username. Get the token from your github settings, see ["Managing your personal access tokens."](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+
+Then you can install the package:
+```
+npm install @echelonmarket/echelon-sdk
 ```
 
 And make sure you also install the `@aptos-labs/ts-sdk`.
+
+For more details, see ["installing a package from github packages"](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package).
 
 ### Get all markets
 
@@ -24,7 +42,7 @@ const aptos = new Aptos(
   })
 );
 
-client = new EchelonClient(getClient());
+const client = new EchelonClient(aptos);
 
 // get all markets
 const markets = await client.getAllMarkets();
