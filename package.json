@@ -1,11 +1,12 @@
 {
-  "name": "@EchelonMarket/echelon-sdk",
+  "name": "@echelonmarket/echelon-sdk",
   "version": "1.0.0",
   "description": "The SDK for the Echelon Market",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "tsup ./src",
-    "test": "jest"
+    "test": "jest",
+    "release": "pnpm run all && changeset publish"
   },
   "files": [
     "dist",
