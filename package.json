@@ -6,7 +6,7 @@
     "typecheck": "tsc --noEmit",
     "build": "tsup ./src",
     "test": "jest",
-    "release": "pnpm run all && changeset publish"
+    "release": "pnpm run build && changeset publish"
   },
   "files": [
     "dist",
