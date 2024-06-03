@@ -1,12 +1,16 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@aptos-labs/ts-sdk':
-    specifier: ^1.16.0
-    version: 1.16.0
+    specifier: ^1.17.0
+    version: 1.17.0
   '@thalalabs/surf':
     specifier: ^1.5.0
-    version: 1.5.0(@aptos-labs/ts-sdk@1.16.0)
+    version: 1.5.0(@aptos-labs/ts-sdk@1.17.0)
 
 devDependencies:
   '@changesets/cli':
@@ -62,8 +66,8 @@ packages:
       - debug
     dev: false
 
-  /@aptos-labs/ts-sdk@1.16.0:
-    resolution: {integrity: sha512-NqJDx39sHN0o7BpxpQzishoZjGBzvXqSVxO+bRm6OPP/Oe+Kb51R5x8dWvW9i3amO3QNdocg/p4jFRCwzqy2Gg==}
+  /@aptos-labs/ts-sdk@1.17.0:
+    resolution: {integrity: sha512-+fXNvz4kchZFZRT2qXOy47U5F8C8+Pi1J0iVgrs8CBiUay5rF/aycRX9RqukqMVgXD0pWA7kLFJsPGKDTH57dg==}
     engines: {node: '>=11.0.0'}
     dependencies:
       '@aptos-labs/aptos-cli': 0.1.8
@@ -1333,7 +1337,7 @@ packages:
       defer-to-connect: 2.0.1
     dev: false
 
-  /@thalalabs/surf@1.5.0(@aptos-labs/ts-sdk@1.16.0):
+  /@thalalabs/surf@1.5.0(@aptos-labs/ts-sdk@1.17.0):
     resolution: {integrity: sha512-HM9T3m0ftT/2KxBQkxW/fFPTT9HwzeyBV0Ys7VD5J04Gxy9WVouO4K4lSi1DnZe4szMWTg3uD//jHC9UOXbzvw==}
     peerDependencies:
       '@aptos-labs/ts-sdk': ^1.14.0
@@ -1345,7 +1349,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@aptos-labs/ts-sdk': 1.16.0
+      '@aptos-labs/ts-sdk': 1.17.0
     dev: false
 
   /@tsconfig/node10@1.0.11:
