@@ -6,7 +6,8 @@
     "typecheck": "tsc --noEmit",
     "build": "tsup ./src",
     "test": "jest",
-    "release": "pnpm run build && changeset publish"
+    "release": "pnpm run build && changeset publish",
+    "gen-doc": "npx typedoc --plugin typedoc-plugin-markdown --out ./docs"
   },
   "files": [
     "dist",

@@ -5,6 +5,7 @@ import { fp64ToFloat } from "./utils/fp64ToFloat";
 import { AnyNumber } from "@thalalabs/surf/build/types/types/common";
 import { createEntryPayload, EntryPayload } from "@thalalabs/surf";
 import { LENDING_SCRIPTS_ABI } from "./abi/lending_scripts";
+import { FARMING_LENDING_ABI } from "./abi/farming_lending";
 
 /**
  * EchelonClient class for interacting with the Aptos blockchain.
@@ -157,6 +158,50 @@ export class EchelonClient {
       payload: createViewPayload(LENDING_ASSETS_ABI, {
         function: "account_coins",
         functionArguments: [account as `0x${string}`, market as `0x${string}`],
+        typeArguments: [],
+      }),
+    });
+    return Number(result[0]);
+  }
+
+  /**
+   * Retrieves the coin price.
+   *
+   * @param {string} market - The market identifier.
+   * @returns {Promise<number>} A promise that resolves to the coin price.
+   */
+  async getCoinPrice(market: string): Promise<number> {
+    const result = await this.aptos.view({
+      payload: createViewPayload(LENDING_ASSETS_ABI, {
+        function: "asset_price",
+        functionArguments: [market as `0x${string}`],
+        typeArguments: [],
+      }),
+    });
+    return fp64ToFloat(BigInt((result[0] as { v: string }).v));
+  }
+
+  /**
+   * Retrieves claimable reward amount of a coin for a specified account.
+   *
+   * @param {string} account - The address of the account.
+   * @param {string} coinName - the 0x1::coin::name of the coin.
+   * @param {string} market - The market identifier.
+   * @param {string} mode - The reward for supply the coin or borrow the coin.
+   * @returns {Promise<number>} A promise that resolves to the amount of claimable reward.
+   */
+  async getAccountClaimableReward(
+    account: string,
+    coinName: string,
+    market: string,
+    mode: "supply" | "borrow"
+  ): Promise<number> {
+    const farmingId = `@${market}${mode === "supply" ? "200" : "201"}`;
+
+    const result = await this.aptos.view({
+      payload: createViewPayload(FARMING_LENDING_ABI, {
+        function: "claimable_reward_amount",
+        functionArguments: [account as `0x${string}`, coinName, farmingId],
         typeArguments: [],
       }),
     });

@@ -1,8 +1,8 @@
-[**echelon-sdk**](README.md) • **Docs**
+[**@echelonmarket/echelon-sdk**](README.md) • **Docs**
 
 ***
 
-# echelon-sdk
+# @echelonmarket/echelon-sdk
 
 ## Classes
 

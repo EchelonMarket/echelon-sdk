@@ -1,8 +1,8 @@
-[**echelon-sdk**](../README.md) • **Docs**
+[**@echelonmarket/echelon-sdk**](../README.md) • **Docs**
 
 ***
 
-[echelon-sdk](../globals.md) / EchelonClient
+[@echelonmarket/echelon-sdk](../globals.md) / EchelonClient
 
 # Class: EchelonClient
 
@@ -28,7 +28,7 @@ The Aptos instance to interact with the blockchain.
 
 #### Source
 
-index.ts:20
+index.ts:21
 
 ## Properties
 
@@ -38,7 +38,7 @@ index.ts:20
 
 #### Source
 
-index.ts:13
+index.ts:14
 
 ## Methods
 
@@ -66,7 +66,7 @@ A promise that resolves to the converted share amount.
 
 #### Source
 
-index.ts:173
+index.ts:218
 
 ***
 
@@ -98,7 +98,7 @@ The payload for the borrow transaction.
 
 #### Source
 
-index.ts:195
+index.ts:240
 
 ***
 
@@ -130,7 +130,7 @@ The payload for the repay transaction.
 
 #### Source
 
-index.ts:215
+index.ts:260
 
 ***
 
@@ -162,7 +162,7 @@ The payload for the supply transaction.
 
 #### Source
 
-index.ts:231
+index.ts:276
 
 ***
 
@@ -194,7 +194,7 @@ The payload for the withdraw transaction.
 
 #### Source
 
-index.ts:247
+index.ts:292
 
 ***
 
@@ -222,7 +222,43 @@ A promise that resolves to the borrowable amount.
 
 #### Source
 
-index.ts:137
+index.ts:138
+
+***
+
+### getAccountClaimableReward()
+
+> **getAccountClaimableReward**(`account`, `coinName`, `market`, `mode`): `Promise`\<`number`\>
+
+Retrieves claimable reward amount of a coin for a specified account.
+
+#### Parameters
+
+• **account**: `string`
+
+The address of the account.
+
+• **coinName**: `string`
+
+the 0x1::coin::name of the coin.
+
+• **market**: `string`
+
+The market identifier.
+
+• **mode**: `"borrow"` \| `"supply"`
+
+The reward for supply the coin or borrow the coin.
+
+#### Returns
+
+`Promise`\<`number`\>
+
+A promise that resolves to the amount of claimable reward.
+
+#### Source
+
+index.ts:193
 
 ***
 
@@ -250,7 +286,7 @@ A promise that resolves to the liability amount.
 
 #### Source
 
-index.ts:98
+index.ts:99
 
 ***
 
@@ -278,7 +314,7 @@ A promise that resolves to the supplied amount.
 
 #### Source
 
-index.ts:155
+index.ts:156
 
 ***
 
@@ -306,7 +342,7 @@ A promise that resolves to the withdrawable amount.
 
 #### Source
 
-index.ts:116
+index.ts:117
 
 ***
 
@@ -324,7 +360,7 @@ A promise that resolves to an array of market identifiers.
 
 #### Source
 
-index.ts:45
+index.ts:46
 
 ***
 
@@ -348,7 +384,31 @@ A promise that resolves to the borrow APR.
 
 #### Source
 
-index.ts:63
+index.ts:64
+
+***
+
+### getCoinPrice()
+
+> **getCoinPrice**(`market`): `Promise`\<`number`\>
+
+Retrieves the coin price.
+
+#### Parameters
+
+• **market**: `string`
+
+The market identifier.
+
+#### Returns
+
+`Promise`\<`number`\>
+
+A promise that resolves to the coin price.
+
+#### Source
+
+index.ts:173
 
 ***
 
@@ -372,7 +432,7 @@ A promise that resolves to the coin address.
 
 #### Source
 
-index.ts:30
+index.ts:31
 
 ***
 
@@ -396,4 +456,4 @@ A promise that resolves to the supply APR.
 
 #### Source
 
-index.ts:80
+index.ts:81
