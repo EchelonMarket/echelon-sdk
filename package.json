@@ -51,6 +51,6 @@
   },
   "dependencies": {
     "@aptos-labs/ts-sdk": "^1.22.2",
-    "@thalalabs/surf": "^1.5.0"
+    "@thalalabs/surf": "^1.6.0"
   }
 }
