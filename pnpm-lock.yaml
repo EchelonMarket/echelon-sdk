@@ -2,11 +2,11 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@aptos-labs/ts-sdk':
-    specifier: ^1.16.0
-    version: 1.16.0
+    specifier: ^1.22.2
+    version: 1.22.2
   '@thalalabs/surf':
     specifier: ^1.5.0
-    version: 1.5.0(@aptos-labs/ts-sdk@1.16.0)
+    version: 1.5.0(@aptos-labs/ts-sdk@1.22.2)
 
 devDependencies:
   '@changesets/cli':
@@ -47,8 +47,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.25
     dev: true
 
-  /@aptos-labs/aptos-cli@0.1.8:
-    resolution: {integrity: sha512-xSWDchqoDR4aR74xNoJZgOzIFtn+EKFGGFLG0vOb+6Ce8Jgg1Ui0Pqhvwbx6Z36dDxfKv0F4M7bnurvWpwAjXA==}
+  /@aptos-labs/aptos-cli@0.1.9:
+    resolution: {integrity: sha512-76uPNZ6JrpruN9H8bEU37GVhAHwdhmvp7ZXpMTFnlFOJnBYt0LHCxR3x+HCk4WZ1CRrPQ57lmO+5A58PiGuweA==}
     hasBin: true
     dev: false
 
@@ -62,11 +62,11 @@ packages:
       - debug
     dev: false
 
-  /@aptos-labs/ts-sdk@1.16.0:
-    resolution: {integrity: sha512-NqJDx39sHN0o7BpxpQzishoZjGBzvXqSVxO+bRm6OPP/Oe+Kb51R5x8dWvW9i3amO3QNdocg/p4jFRCwzqy2Gg==}
+  /@aptos-labs/ts-sdk@1.22.2:
+    resolution: {integrity: sha512-EUGFT6Emyrc8xqBxZB7fO6Xha98+Q3WWJNw56IOVbiMYaga5w7Dzj8rTYYHxvxyBfEbnNQHn4QcQfaciU2N4qA==}
     engines: {node: '>=11.0.0'}
     dependencies:
-      '@aptos-labs/aptos-cli': 0.1.8
+      '@aptos-labs/aptos-cli': 0.1.9
       '@aptos-labs/aptos-client': 0.1.0
       '@noble/curves': 1.4.0
       '@noble/hashes': 1.4.0
@@ -74,6 +74,9 @@ packages:
       '@scure/bip39': 1.3.0
       eventemitter3: 5.0.1
       form-data: 4.0.0
+      js-base64: 3.7.7
+      jwt-decode: 4.0.0
+      poseidon-lite: 0.2.0
     transitivePeerDependencies:
       - debug
     dev: false
@@ -1333,7 +1336,7 @@ packages:
       defer-to-connect: 2.0.1
     dev: false
 
-  /@thalalabs/surf@1.5.0(@aptos-labs/ts-sdk@1.16.0):
+  /@thalalabs/surf@1.5.0(@aptos-labs/ts-sdk@1.22.2):
     resolution: {integrity: sha512-HM9T3m0ftT/2KxBQkxW/fFPTT9HwzeyBV0Ys7VD5J04Gxy9WVouO4K4lSi1DnZe4szMWTg3uD//jHC9UOXbzvw==}
     peerDependencies:
       '@aptos-labs/ts-sdk': ^1.14.0
@@ -1345,7 +1348,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@aptos-labs/ts-sdk': 1.16.0
+      '@aptos-labs/ts-sdk': 1.22.2
     dev: false
 
   /@tsconfig/node10@1.0.11:
@@ -3461,6 +3464,10 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /js-base64@3.7.7:
+    resolution: {integrity: sha512-7rCnleh0z2CkXhH67J8K1Ytz0b2Y+yxTPL+/KOJoa20hfnVQ/3/T6W/KflYI4bRHRagNeXeU2bkNGI3v1oS/lw==}
+    dev: false
+
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: true
@@ -3502,6 +3509,11 @@ packages:
     optionalDependencies:
       graceful-fs: 4.2.11
     dev: true
+
+  /jwt-decode@4.0.0:
+    resolution: {integrity: sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==}
+    engines: {node: '>=18'}
+    dev: false
 
   /keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -3949,6 +3961,10 @@ packages:
     dependencies:
       find-up: 4.1.0
     dev: true
+
+  /poseidon-lite@0.2.0:
+    resolution: {integrity: sha512-vivDZnGmz8W4G/GzVA72PXkfYStjilu83rjjUfpL4PueKcC8nfX6hCPh2XhoC5FBgC6y0TA3YuUeUo5YCcNoig==}
+    dev: false
 
   /possible-typed-array-names@1.0.0:
     resolution: {integrity: sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==}
