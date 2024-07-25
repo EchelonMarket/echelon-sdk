@@ -42,7 +42,7 @@ const aptos = new Aptos(
   })
 );
 
-const client = new EchelonClient(aptos);
+const client = new EchelonClient(aptos, "0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba");
 
 // get all markets
 const markets = await client.getAllMarkets();

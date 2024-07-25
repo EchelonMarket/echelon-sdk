@@ -12,14 +12,17 @@ import { FARMING_LENDING_ABI } from "./abi/farming_lending";
  */
 export class EchelonClient {
   aptos: Aptos;
+  address: `0x${string}`;
 
   /**
    * Creates an instance of EchelonClient.
    *
    * @param {Aptos} aptos - The Aptos instance to interact with the blockchain.
+   * @param {`0x${string}`} contractAddress - The address of the Echelon contract.
    */
-  constructor(aptos: Aptos) {
+  constructor(aptos: Aptos, contractAddress: `0x${string}`) {
     this.aptos = aptos;
+    this.address = contractAddress;
   }
 
   /**
@@ -49,6 +52,7 @@ export class EchelonClient {
         function: "market_objects",
         functionArguments: [],
         typeArguments: [],
+        address: this.address,
       }),
     });
 
@@ -67,6 +71,7 @@ export class EchelonClient {
         function: "borrow_interest_rate",
         functionArguments: [market as `0x${string}`],
         typeArguments: [],
+        address: this.address,
       }),
     });
     return fp64ToFloat(BigInt((result[0] as { v: string }).v));
@@ -84,6 +89,7 @@ export class EchelonClient {
         function: "supply_interest_rate",
         functionArguments: [market as `0x${string}`],
         typeArguments: [],
+        address: this.address,
       }),
     });
     return fp64ToFloat(BigInt((result[0] as { v: string }).v));
@@ -102,6 +108,7 @@ export class EchelonClient {
         function: "account_liability",
         functionArguments: [account as `0x${string}`, market as `0x${string}`],
         typeArguments: [],
+        address: this.address,
       }),
     });
     return Number(result[0]);
@@ -123,6 +130,7 @@ export class EchelonClient {
         function: "account_withdrawable_coins",
         functionArguments: [account as `0x${string}`, market as `0x${string}`],
         typeArguments: [],
+        address: this.address,
       }),
     });
     return Number(result[0]);
@@ -141,6 +149,7 @@ export class EchelonClient {
         function: "account_borrowable_coins",
         functionArguments: [account as `0x${string}`, market as `0x${string}`],
         typeArguments: [],
+        address: this.address,
       }),
     });
     return Number(result[0]);
@@ -159,6 +168,7 @@ export class EchelonClient {
         function: "account_coins",
         functionArguments: [account as `0x${string}`, market as `0x${string}`],
         typeArguments: [],
+        address: this.address,
       }),
     });
     return Number(result[0]);
@@ -176,6 +186,7 @@ export class EchelonClient {
         function: "asset_price",
         functionArguments: [market as `0x${string}`],
         typeArguments: [],
+        address: this.address,
       }),
     });
     return fp64ToFloat(BigInt((result[0] as { v: string }).v));
@@ -203,6 +214,7 @@ export class EchelonClient {
         function: "claimable_reward_amount",
         functionArguments: [account as `0x${string}`, coinName, farmingId],
         typeArguments: [],
+        address: this.address,
       }),
     });
     return Number(result[0]);
@@ -224,6 +236,7 @@ export class EchelonClient {
         function: "coins_to_shares",
         functionArguments: [market as `0x${string}`, amount],
         typeArguments: [],
+        address: this.address,
       }),
     });
     return Number(result[0]);
@@ -246,6 +259,7 @@ export class EchelonClient {
       function: "borrow",
       typeArguments: [coinAddress],
       functionArguments: [market as `0x${string}`, amount],
+      address: this.address,
     });
   }
 
@@ -262,6 +276,7 @@ export class EchelonClient {
       function: "repay",
       typeArguments: [coinAddress],
       functionArguments: [market as `0x${string}`, amount],
+      address: this.address,
     });
   }
 
@@ -278,6 +293,7 @@ export class EchelonClient {
       function: "supply",
       typeArguments: [coinAddress],
       functionArguments: [market as `0x${string}`, amount],
+      address: this.address,
     });
   }
 
@@ -294,6 +310,7 @@ export class EchelonClient {
       function: "withdraw",
       typeArguments: [coinAddress],
       functionArguments: [market as `0x${string}`, share],
+      address: this.address,
     });
   }
 }

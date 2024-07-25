@@ -12,7 +12,7 @@ EchelonClient class for interacting with the Aptos blockchain.
 
 ### new EchelonClient()
 
-> **new EchelonClient**(`aptos`): [`EchelonClient`](EchelonClient.md)
+> **new EchelonClient**(`aptos`, `contractAddress`): [`EchelonClient`](EchelonClient.md)
 
 Creates an instance of EchelonClient.
 
@@ -22,15 +22,29 @@ Creates an instance of EchelonClient.
 
 The Aptos instance to interact with the blockchain.
 
+• **contractAddress**: \`0x$\{string\}\`
+
+The address of the Echelon contract.
+
 #### Returns
 
 [`EchelonClient`](EchelonClient.md)
 
 #### Source
 
-index.ts:21
+index.ts:23
 
 ## Properties
+
+### address
+
+> **address**: \`0x$\{string\}\`
+
+#### Source
+
+index.ts:15
+
+***
 
 ### aptos
 
@@ -66,7 +80,7 @@ A promise that resolves to the converted share amount.
 
 #### Source
 
-index.ts:218
+index.ts:230
 
 ***
 
@@ -98,7 +112,7 @@ The payload for the borrow transaction.
 
 #### Source
 
-index.ts:240
+index.ts:253
 
 ***
 
@@ -130,7 +144,7 @@ The payload for the repay transaction.
 
 #### Source
 
-index.ts:260
+index.ts:274
 
 ***
 
@@ -162,7 +176,7 @@ The payload for the supply transaction.
 
 #### Source
 
-index.ts:276
+index.ts:291
 
 ***
 
@@ -194,7 +208,7 @@ The payload for the withdraw transaction.
 
 #### Source
 
-index.ts:292
+index.ts:308
 
 ***
 
@@ -222,7 +236,7 @@ A promise that resolves to the borrowable amount.
 
 #### Source
 
-index.ts:138
+index.ts:146
 
 ***
 
@@ -258,7 +272,7 @@ A promise that resolves to the amount of claimable reward.
 
 #### Source
 
-index.ts:193
+index.ts:204
 
 ***
 
@@ -286,7 +300,7 @@ A promise that resolves to the liability amount.
 
 #### Source
 
-index.ts:99
+index.ts:105
 
 ***
 
@@ -314,7 +328,7 @@ A promise that resolves to the supplied amount.
 
 #### Source
 
-index.ts:156
+index.ts:165
 
 ***
 
@@ -342,7 +356,7 @@ A promise that resolves to the withdrawable amount.
 
 #### Source
 
-index.ts:117
+index.ts:124
 
 ***
 
@@ -360,7 +374,7 @@ A promise that resolves to an array of market identifiers.
 
 #### Source
 
-index.ts:46
+index.ts:49
 
 ***
 
@@ -384,7 +398,7 @@ A promise that resolves to the borrow APR.
 
 #### Source
 
-index.ts:64
+index.ts:68
 
 ***
 
@@ -408,7 +422,7 @@ A promise that resolves to the coin price.
 
 #### Source
 
-index.ts:173
+index.ts:183
 
 ***
 
@@ -432,7 +446,7 @@ A promise that resolves to the coin address.
 
 #### Source
 
-index.ts:31
+index.ts:34
 
 ***
 
@@ -456,4 +470,4 @@ A promise that resolves to the supply APR.
 
 #### Source
 
-index.ts:81
+index.ts:86
