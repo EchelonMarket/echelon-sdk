@@ -1,5 +1,11 @@
 # @echelonmarket/echelon-sdk
 
+## 2.0.1
+
+### Patch Changes
+
+- 1c43627: fix getMarketCoin ignore the override address
+
 ## 2.0.0
 
 ### Major Changes
