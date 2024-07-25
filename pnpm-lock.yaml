@@ -5,8 +5,8 @@ dependencies:
     specifier: ^1.22.2
     version: 1.22.2
   '@thalalabs/surf':
-    specifier: ^1.5.0
-    version: 1.5.0(@aptos-labs/ts-sdk@1.22.2)
+    specifier: ^1.7.1
+    version: 1.7.1(@aptos-labs/ts-sdk@1.22.2)
 
 devDependencies:
   '@changesets/cli':
@@ -1336,11 +1336,11 @@ packages:
       defer-to-connect: 2.0.1
     dev: false
 
-  /@thalalabs/surf@1.5.0(@aptos-labs/ts-sdk@1.22.2):
-    resolution: {integrity: sha512-HM9T3m0ftT/2KxBQkxW/fFPTT9HwzeyBV0Ys7VD5J04Gxy9WVouO4K4lSi1DnZe4szMWTg3uD//jHC9UOXbzvw==}
+  /@thalalabs/surf@1.7.1(@aptos-labs/ts-sdk@1.22.2):
+    resolution: {integrity: sha512-VE5SiVj2yeJboP7AmKp42xnu3x4ygZglFwrvAEoVDfTr1Mf/clAL8s7FJ45ftX4V93NeF3whyHIT9p4yOOks6A==}
     peerDependencies:
-      '@aptos-labs/ts-sdk': ^1.14.0
-      '@aptos-labs/wallet-adapter-react': ^2.2.0
+      '@aptos-labs/ts-sdk': ^1.22.0
+      '@aptos-labs/wallet-adapter-react': ^3.4.2
       react: ^18.2.0
     peerDependenciesMeta:
       '@aptos-labs/wallet-adapter-react':

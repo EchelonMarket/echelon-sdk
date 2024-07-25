@@ -33,7 +33,7 @@ export class EchelonClient {
    */
   async getMarketCoin(market: string): Promise<string> {
     const result = await createSurfClient(this.aptos)
-      .useABI(LENDING_ASSETS_ABI)
+      .useABI(LENDING_ASSETS_ABI, this.address)
       .resource.CoinInfo({
         account: market as `0x${string}`,
         typeArguments: [],
