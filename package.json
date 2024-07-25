@@ -45,9 +45,9 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "tsup": "^8.0.2",
-    "typedoc": "^0.25.13",
+    "typedoc": "^0.26.5",
     "typedoc-plugin-markdown": "^4.0.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "@aptos-labs/ts-sdk": "^1.22.2",
