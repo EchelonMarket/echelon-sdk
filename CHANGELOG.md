@@ -1,5 +1,11 @@
 # @echelonmarket/echelon-sdk
 
+## 2.0.2
+
+### Patch Changes
+
+- 259895b: Support coin of FungibleAsset type
+
 ## 2.0.1
 
 ### Patch Changes
