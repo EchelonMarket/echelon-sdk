@@ -32,13 +32,23 @@ export class EchelonClient {
    * @returns {Promise<string>} A promise that resolves to the coin address.
    */
   async getMarketCoin(market: string): Promise<string> {
-    const result = await createSurfClient(this.aptos)
-      .useABI(LENDING_ASSETS_ABI, this.address)
-      .resource.CoinInfo({
-        account: market as `0x${string}`,
-        typeArguments: [],
-      });
-    return result.type_name;
+    try {
+      const result = await createSurfClient(this.aptos)
+        .useABI(LENDING_ASSETS_ABI, this.address)
+        .resource.CoinInfo({
+          account: market as `0x${string}`,
+          typeArguments: [],
+        });
+      return result.type_name;
+    } catch (e) {
+      const result = await createSurfClient(this.aptos)
+        .useABI(LENDING_ASSETS_ABI, this.address)
+        .resource.FungibleAssetInfo({
+          account: market as `0x${string}`,
+          typeArguments: [],
+        });
+      return (result.metadata as { inner: string }).inner;
+    }
   }
 
   /**

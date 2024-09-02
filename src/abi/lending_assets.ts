@@ -4,7 +4,7 @@ export const LENDING_ASSETS_ABI = {
   friends: [],
   exposed_functions: [
     {
-      name: "preview_account_liquidity_given_borrow",
+      name: "preview_health_factor_given_borrow",
       visibility: "public",
       is_entry: false,
       is_view: true,
@@ -20,7 +20,7 @@ export const LENDING_ASSETS_ABI = {
       ],
     },
     {
-      name: "preview_account_liquidity_given_repay",
+      name: "preview_health_factor_given_repay",
       visibility: "public",
       is_entry: false,
       is_view: true,
@@ -36,7 +36,7 @@ export const LENDING_ASSETS_ABI = {
       ],
     },
     {
-      name: "preview_account_liquidity_given_supply",
+      name: "preview_health_factor_given_supply",
       visibility: "public",
       is_entry: false,
       is_view: true,
@@ -52,7 +52,7 @@ export const LENDING_ASSETS_ABI = {
       ],
     },
     {
-      name: "preview_account_liquidity_given_withdraw",
+      name: "preview_health_factor_given_withdraw",
       visibility: "public",
       is_entry: false,
       is_view: true,
@@ -80,6 +80,17 @@ export const LENDING_ASSETS_ABI = {
       return: ["u64"],
     },
     {
+      name: "account_borrowing_power",
+      visibility: "public",
+      is_entry: false,
+      is_view: true,
+      generic_type_params: [],
+      params: ["address"],
+      return: [
+        "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
+      ],
+    },
+    {
       name: "account_coins",
       visibility: "public",
       is_entry: false,
@@ -90,6 +101,38 @@ export const LENDING_ASSETS_ABI = {
         "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
       ],
       return: ["u64"],
+    },
+    {
+      name: "account_emode",
+      visibility: "public",
+      is_entry: false,
+      is_view: true,
+      generic_type_params: [],
+      params: ["address"],
+      return: ["u8"],
+    },
+    {
+      name: "account_emode_eligibility",
+      visibility: "public",
+      is_entry: false,
+      is_view: true,
+      generic_type_params: [],
+      params: ["address", "u8"],
+      return: [
+        "bool",
+        "vector<0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>>",
+      ],
+    },
+    {
+      name: "account_lend_value",
+      visibility: "public",
+      is_entry: false,
+      is_view: true,
+      generic_type_params: [],
+      params: ["address"],
+      return: [
+        "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
+      ],
     },
     {
       name: "account_liability",
@@ -104,6 +147,28 @@ export const LENDING_ASSETS_ABI = {
       return: ["u64"],
     },
     {
+      name: "account_liability_value",
+      visibility: "public",
+      is_entry: false,
+      is_view: true,
+      generic_type_params: [],
+      params: ["address"],
+      return: [
+        "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
+      ],
+    },
+    {
+      name: "account_liquidation_threshold",
+      visibility: "public",
+      is_entry: false,
+      is_view: true,
+      generic_type_params: [],
+      params: ["address"],
+      return: [
+        "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
+      ],
+    },
+    {
       name: "account_liquidity",
       visibility: "public",
       is_entry: false,
@@ -111,9 +176,21 @@ export const LENDING_ASSETS_ABI = {
       generic_type_params: [],
       params: ["address"],
       return: [
-        "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
-        "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+        "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
+        "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
       ],
+    },
+    {
+      name: "account_market_collateral_factor_bps",
+      visibility: "public",
+      is_entry: false,
+      is_view: true,
+      generic_type_params: [],
+      params: [
+        "address",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+      ],
+      return: ["u64"],
     },
     {
       name: "account_shares",
@@ -149,7 +226,7 @@ export const LENDING_ASSETS_ABI = {
         "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
       ],
       return: [
-        "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+        "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
       ],
     },
     {
@@ -192,7 +269,7 @@ export const LENDING_ASSETS_ABI = {
         "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
       ],
       return: [
-        "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+        "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
       ],
     },
     {
@@ -222,6 +299,21 @@ export const LENDING_ASSETS_ABI = {
       return: [],
     },
     {
+      name: "create_efficiency_mode_v2",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [],
+      params: [
+        "&signer",
+        "vector<0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>>",
+        "u64",
+        "u64",
+        "u64",
+      ],
+      return: [],
+    },
+    {
       name: "create_market_with_jump_model",
       visibility: "public",
       is_entry: false,
@@ -245,6 +337,53 @@ export const LENDING_ASSETS_ABI = {
       params: [
         "&signer",
         "0x1::object::Object<0x1::fungible_asset::Metadata>",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+      ],
+      return: [
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+      ],
+    },
+    {
+      name: "create_market_with_jump_model_fa_v2",
+      visibility: "public",
+      is_entry: false,
+      is_view: false,
+      generic_type_params: [],
+      params: [
+        "&signer",
+        "0x1::object::Object<0x1::fungible_asset::Metadata>",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+        "u64",
+      ],
+      return: [
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+      ],
+    },
+    {
+      name: "create_market_with_jump_model_v2",
+      visibility: "public",
+      is_entry: false,
+      is_view: false,
+      generic_type_params: [
+        {
+          constraints: [],
+        },
+      ],
+      params: [
+        "&signer",
+        "u64",
+        "u64",
         "u64",
         "u64",
         "u64",
@@ -351,6 +490,17 @@ export const LENDING_ASSETS_ABI = {
         "u64",
       ],
       return: [],
+    },
+    {
+      name: "market_asset_mantissa",
+      visibility: "public",
+      is_entry: false,
+      is_view: true,
+      generic_type_params: [],
+      params: [
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+      ],
+      return: ["u64"],
     },
     {
       name: "market_asset_metadata",
@@ -589,6 +739,15 @@ export const LENDING_ASSETS_ABI = {
       return: [],
     },
     {
+      name: "set_efficiency_mode_liquidation_threshold_bps",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [],
+      params: ["&signer", "u8", "u64"],
+      return: [],
+    },
+    {
       name: "set_interest_fee_bps",
       visibility: "public",
       is_entry: true,
@@ -653,6 +812,19 @@ export const LENDING_ASSETS_ABI = {
         "u64",
         "u64",
         "u64",
+        "u64",
+      ],
+      return: [],
+    },
+    {
+      name: "set_market_liquidation_threshold_bps",
+      visibility: "public",
+      is_entry: true,
+      is_view: false,
+      generic_type_params: [],
+      params: [
+        "&signer",
+        "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
         "u64",
       ],
       return: [],
@@ -735,7 +907,7 @@ export const LENDING_ASSETS_ABI = {
         "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
       ],
       return: [
-        "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+        "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
       ],
     },
     {
@@ -766,7 +938,7 @@ export const LENDING_ASSETS_ABI = {
         "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
       ],
       return: [
-        "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+        "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
       ],
     },
     {
@@ -852,7 +1024,7 @@ export const LENDING_ASSETS_ABI = {
         },
         {
           name: "borrow_interest_rate",
-          type: "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+          type: "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
         },
         {
           name: "second_delta",
@@ -860,7 +1032,7 @@ export const LENDING_ASSETS_ABI = {
         },
         {
           name: "simple_interest_factor",
-          type: "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+          type: "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
         },
         {
           name: "interest_accumulated",
@@ -872,7 +1044,7 @@ export const LENDING_ASSETS_ABI = {
         },
         {
           name: "interest_rate_index",
-          type: "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+          type: "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
         },
         {
           name: "total_liability",
@@ -908,7 +1080,7 @@ export const LENDING_ASSETS_ABI = {
         },
         {
           name: "interest_rate_index",
-          type: "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+          type: "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
         },
         {
           name: "interest_accumulated",
@@ -1001,6 +1173,18 @@ export const LENDING_ASSETS_ABI = {
       ],
     },
     {
+      name: "EmodeLiquidationThreshold",
+      is_native: false,
+      abilities: ["key"],
+      generic_type_params: [],
+      fields: [
+        {
+          name: "value_bps",
+          type: "0x1::simple_map::SimpleMap<u8, u64>",
+        },
+      ],
+    },
+    {
       name: "FungibleAssetInfo",
       is_native: false,
       abilities: ["key"],
@@ -1088,7 +1272,7 @@ export const LENDING_ASSETS_ABI = {
         },
         {
           name: "last_interest_rate_index",
-          type: "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+          type: "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
         },
       ],
     },
@@ -1192,7 +1376,7 @@ export const LENDING_ASSETS_ABI = {
         },
         {
           name: "interest_rate_index",
-          type: "0x4dcae85fc5559071906cd5c76b7420fcbb4b0a92f00ab40ffc394aadbbff5ee9::fixed_point64::FixedPoint64",
+          type: "0x94f0e00a99685c74067f7541b171bf2a4bd7d859609adce17980a7c924b135c8::fixed_point64::FixedPoint64",
         },
         {
           name: "interest_rate_last_update_seconds",
@@ -1216,6 +1400,18 @@ export const LENDING_ASSETS_ABI = {
         },
         {
           name: "borrow_cap",
+          type: "u64",
+        },
+      ],
+    },
+    {
+      name: "MarketLiquidationThreshold",
+      is_native: false,
+      abilities: ["key"],
+      generic_type_params: [],
+      fields: [
+        {
+          name: "value_bps",
           type: "u64",
         },
       ],
@@ -1317,6 +1513,18 @@ export const LENDING_ASSETS_ABI = {
       ],
     },
     {
+      name: "VaultCreatedEvent",
+      is_native: false,
+      abilities: ["drop", "store"],
+      generic_type_params: [],
+      fields: [
+        {
+          name: "account_addr",
+          type: "address",
+        },
+      ],
+    },
+    {
       name: "WithdrawEvent",
       is_native: false,
       abilities: ["drop", "store"],
@@ -1348,6 +1556,30 @@ export const LENDING_ASSETS_ABI = {
         },
         {
           name: "total_shares",
+          type: "u64",
+        },
+      ],
+    },
+    {
+      name: "WithdrawReserveEvent",
+      is_native: false,
+      abilities: ["drop", "store"],
+      generic_type_params: [],
+      fields: [
+        {
+          name: "market_obj",
+          type: "0x1::object::Object<0xc6bc659f1649553c1a3fa05d9727433dc03843baac29473c817d06d39e7621ba::lending::Market>",
+        },
+        {
+          name: "recipient",
+          type: "address",
+        },
+        {
+          name: "total_cash",
+          type: "u64",
+        },
+        {
+          name: "amount",
           type: "u64",
         },
       ],
