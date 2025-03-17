@@ -1,5 +1,11 @@
 # @echelonmarket/echelon-sdk
 
+## 2.1.0
+
+### Minor Changes
+
+- 10fe9de: support initia
+
 ## 2.0.2
 
 ### Patch Changes
