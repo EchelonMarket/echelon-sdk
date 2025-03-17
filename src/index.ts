@@ -1,4 +1,8 @@
-import { createSurfClient, createViewPayload } from "@thalalabs/surf";
+import {
+  createSurfClient,
+  createViewPayload,
+  DefaultABITable,
+} from "@thalalabs/surf";
 import { LENDING_ASSETS_ABI } from "./abi/lending_assets";
 import { Aptos } from "@aptos-labs/ts-sdk";
 import { fp64ToFloat } from "./utils/fp64ToFloat";
@@ -6,22 +10,26 @@ import { AnyNumber } from "@thalalabs/surf/build/types/types/common";
 import { createEntryPayload, EntryPayload } from "@thalalabs/surf";
 import { LENDING_SCRIPTS_ABI } from "./abi/lending_scripts";
 import { FARMING_LENDING_ABI } from "./abi/farming_lending";
+import { RESTClient } from "@initia/initia.js/dist/client/rest/RESTClient";
+import { Client } from "@thalalabs/surf/build/types/core/Client";
 
 /**
  * EchelonClient class for interacting with the Aptos blockchain.
  */
 export class EchelonClient {
-  aptos: Aptos;
+  aptos: Aptos | RESTClient;
   address: `0x${string}`;
+  surfClient: Client<DefaultABITable>;
 
   /**
    * Creates an instance of EchelonClient.
    *
-   * @param {Aptos} aptos - The Aptos instance to interact with the blockchain.
+   * @param {Aptos | RESTClient} aptos - The Aptos instance to interact with the blockchain.
    * @param {`0x${string}`} contractAddress - The address of the Echelon contract.
    */
-  constructor(aptos: Aptos, contractAddress: `0x${string}`) {
+  constructor(aptos: Aptos | RESTClient, contractAddress: `0x${string}`) {
     this.aptos = aptos;
+    this.surfClient = createSurfClient(this.aptos);
     this.address = contractAddress;
   }
 
@@ -33,7 +41,7 @@ export class EchelonClient {
    */
   async getMarketCoin(market: string): Promise<string> {
     try {
-      const result = await createSurfClient(this.aptos)
+      const result = await this.surfClient
         .useABI(LENDING_ASSETS_ABI, this.address)
         .resource.CoinInfo({
           account: market as `0x${string}`,
@@ -41,7 +49,7 @@ export class EchelonClient {
         });
       return result.type_name;
     } catch (e) {
-      const result = await createSurfClient(this.aptos)
+      const result = await this.surfClient
         .useABI(LENDING_ASSETS_ABI, this.address)
         .resource.FungibleAssetInfo({
           account: market as `0x${string}`,
@@ -57,7 +65,7 @@ export class EchelonClient {
    * @returns {Promise<string[]>} A promise that resolves to an array of market identifiers.
    */
   async getAllMarkets(): Promise<string[]> {
-    const result = await this.aptos.view({
+    const result = await this.surfClient.view({
       payload: createViewPayload(LENDING_ASSETS_ABI, {
         function: "market_objects",
         functionArguments: [],
@@ -76,7 +84,7 @@ export class EchelonClient {
    * @returns {Promise<number>} A promise that resolves to the borrow APR.
    */
   async getBorrowApr(market: string): Promise<number> {
-    const result = await this.aptos.view({
+    const result = await this.surfClient.view({
       payload: createViewPayload(LENDING_ASSETS_ABI, {
         function: "borrow_interest_rate",
         functionArguments: [market as `0x${string}`],
@@ -94,7 +102,7 @@ export class EchelonClient {
    * @returns {Promise<number>} A promise that resolves to the supply APR.
    */
   async getSupplyApr(market: string): Promise<number> {
-    const result = await this.aptos.view({
+    const result = await this.surfClient.view({
       payload: createViewPayload(LENDING_ASSETS_ABI, {
         function: "supply_interest_rate",
         functionArguments: [market as `0x${string}`],
@@ -113,7 +121,7 @@ export class EchelonClient {
    * @returns {Promise<number>} A promise that resolves to the liability amount.
    */
   async getAccountLiability(account: string, market: string): Promise<number> {
-    const result = await this.aptos.view({
+    const result = await this.surfClient.view({
       payload: createViewPayload(LENDING_ASSETS_ABI, {
         function: "account_liability",
         functionArguments: [account as `0x${string}`, market as `0x${string}`],
@@ -135,7 +143,7 @@ export class EchelonClient {
     account: string,
     market: string
   ): Promise<number> {
-    const result = await this.aptos.view({
+    const result = await this.surfClient.view({
       payload: createViewPayload(LENDING_ASSETS_ABI, {
         function: "account_withdrawable_coins",
         functionArguments: [account as `0x${string}`, market as `0x${string}`],
@@ -154,7 +162,7 @@ export class EchelonClient {
    * @returns {Promise<number>} A promise that resolves to the borrowable amount.
    */
   async getAccountBorrowable(account: string, market: string): Promise<number> {
-    const result = await this.aptos.view({
+    const result = await this.surfClient.view({
       payload: createViewPayload(LENDING_ASSETS_ABI, {
         function: "account_borrowable_coins",
         functionArguments: [account as `0x${string}`, market as `0x${string}`],
@@ -173,7 +181,7 @@ export class EchelonClient {
    * @returns {Promise<number>} A promise that resolves to the supplied amount.
    */
   async getAccountSupply(account: string, market: string): Promise<number> {
-    const result = await this.aptos.view({
+    const result = await this.surfClient.view({
       payload: createViewPayload(LENDING_ASSETS_ABI, {
         function: "account_coins",
         functionArguments: [account as `0x${string}`, market as `0x${string}`],
@@ -191,7 +199,7 @@ export class EchelonClient {
    * @returns {Promise<number>} A promise that resolves to the coin price.
    */
   async getCoinPrice(market: string): Promise<number> {
-    const result = await this.aptos.view({
+    const result = await this.surfClient.view({
       payload: createViewPayload(LENDING_ASSETS_ABI, {
         function: "asset_price",
         functionArguments: [market as `0x${string}`],
@@ -219,7 +227,7 @@ export class EchelonClient {
   ): Promise<number> {
     const farmingId = `@${market}${mode === "supply" ? "200" : "201"}`;
 
-    const result = await this.aptos.view({
+    const result = await this.surfClient.view({
       payload: createViewPayload(FARMING_LENDING_ABI, {
         function: "claimable_reward_amount",
         functionArguments: [account as `0x${string}`, coinName, farmingId],
@@ -241,7 +249,7 @@ export class EchelonClient {
     market: string,
     amount: AnyNumber
   ): Promise<number> {
-    const result = await this.aptos.view({
+    const result = await this.surfClient.view({
       payload: createViewPayload(LENDING_ASSETS_ABI, {
         function: "coins_to_shares",
         functionArguments: [market as `0x${string}`, amount],
